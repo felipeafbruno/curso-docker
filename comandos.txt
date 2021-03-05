@@ -31,3 +31,7 @@ OBS: OA CRIAR UM CONTAINER DAR NOMES RELEVANTES
 # 'caminho_completo_da_aplicação'/'nome_da_pasta_do_usuario':/usr/share/nginx/html do comando quer dizer que o nginx vai 
 # parar de apontar para o arquivo padrão para apontar para a pasta criada 
 - docker container run -p 8080:80 -v 'caminho_completo_da_aplicação'/'nome_da_pasta_do_usuario':/usr/share/nginx/html 'nome_da_imagem'
+# '-d' modo daemon
+# daemon vai executar o container em background
+- docker container run -d --name 'alias_do_container '-p 8080:80 -v 'caminho_completo_da_aplicação'/'nome_da_pasta_do_usuario':/usr/share/nginx/html 'nome_da_imagem'
+- todo o comando acima vai retornar o id do container
