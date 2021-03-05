@@ -15,8 +15,10 @@ OBS: OA CRIAR UM CONTAINER DAR NOMES RELEVANTES
  - docker container run -p 8080:80 'nome_da_imagem'
  
 OBS: OA CRIAR UM CONTAINER DAR NOMES RELEVANTES 
-# 'start' inicia o container existente 
- - docker container start 'nome_da_imagem'
+# 'start' inicia o container 
+ - docker container start 'nome_do_container
+# restart reinicia o container 
+ - docker container restart 'nome_do_container'
 
 # lista os containers que estão em execução
  - docker container ps 
