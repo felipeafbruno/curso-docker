@@ -1,0 +1,33 @@
+OBS: OA CRIAR UM CONTAINER DAR NOMES RELEVANTES 
+# Comando é responsavel por baixar uma imagem do Registry para a máquina local
+# Cria o container com base na imagem baixada
+# Inicia e executa o container criado 
+# 'run' sempre vai criar novos containers
+ - docker container run 'nome_da_imagem' 
+# '--rm' Remove um container  
+ - docker container run --rm 'nome_da_imagem'
+# '-it' inicia o modo iterativo em um container em execução
+ - docker container run -it 'nome_da_imagem'
+# '--name' utilizado para criar um apelido para o container
+ - docker container run --name 'alias_do_container' 'nome_da_imagem'
+# '-p' mapaeamento a porta de acesso á aplicação 
+# 8080 porta externa e 80 porta interna 
+ - docker container run -p 8080:80 'nome_da_imagem'
+ 
+OBS: OA CRIAR UM CONTAINER DAR NOMES RELEVANTES 
+# 'start' inicia o container existente 
+ - docker container start 'nome_da_imagem'
+
+# lista os containers que estão em execução
+ - docker container ps 
+# lista todos os containers independente do status  
+ - docker container ps -a
+
+# 'stop' para a execução do container
+- docker container stop 'nome_da_imagem'
+
+# '-v' mapeamento do volume 
+# 'usr/share/nginx/html' caminho completo aponta para a pasta onde o nginx vai ler arquivo index que ele carega por padrão
+# 'caminho_completo_da_aplicação'/'nome_da_pasta_do_usuario':/usr/share/nginx/html do comando quer dizer que o nginx vai 
+# parar de apontar para o arquivo padrão para apontar para a pasta criada 
+- docker container run -p 8080:80 -v 'caminho_completo_da_aplicação'/'nome_da_pasta_do_usuario':/usr/share/nginx/html 'nome_da_imagem'
