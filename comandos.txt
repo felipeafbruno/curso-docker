@@ -40,7 +40,7 @@ OBS: OA CRIAR UM CONTAINER DAR NOMES RELEVANTES
 
 # logs retorna os arquivos log da aplicação
  - docker container logs 'nome_do_container' 
-# inspect retorna as informações sobre o container 
+# retorna as informações sobre o container 
  - docker container inspect 'nome_do_container'	
 # exec 'uname -or' retorna com detalhe que tipo de sistema está sendo executado no container 
  - docker container exec 'nome_do_container' uname -or
@@ -49,3 +49,36 @@ OBS: OA CRIAR UM CONTAINER DAR NOMES RELEVANTES
  - docker image ls
 # listar volume do containers
  - docker volume ls
+# listar network possiveis que o docker disponibiliza
+ - docker network ls
+
+# comando que retorna lista de recursos possiveis 
+ - docker container|image|volume --help
+
+# comando para buscar um imagem do repositório
+ - docker image pull 'nome_da_imagem'
+
+# retorna as informações sobre a imagem
+ - docker image inspect 'nome_da_imagem'
+
+OBS: 
+Tags são como ponteiros para a imagem
+Não é interessante apontar para a ultima versão da imagem por conta dos updates que acontecem com frequência 
+# criando uma tag para a imagem
+ - docker image tag redis:latest 'nome_da_tag'
+# comando para construir a imagem
+ - docker image build -t|tag 'tag_da_imagem'
+# comando para obter o mantenedor de uma imagem
+docker image inspect --format="{{index .Config.Labels \"maintainer\"}}" ex-build-arg
+# 'exportando' o volume de outro container para um novo 
+ - docker container run -it --volumes-from=python-server debian cat /log/http-server.log
+# comando para criar uma red com base nos 4 tipos disponibilizados pela docker
+ - docker network create --driver bridge 'nome_da_rede'
+# comando para connectar um container a uma das redes disponibilizadas pelo docker
+ - docker container connect bridge 'nome_do_container'
+# desconectar o container da rede 
+ - docker container disconnect bridge 'nome_do_container'
+
+Projeto Cadastro Simples
+# executa o arquivo docker-compose.yml
+ - docker-compose up 
